@@ -6,12 +6,13 @@
 package cuentas;
 
 /**
- *
+ *Esta clase sirve para crear objetos del tipo cuenta y agrupa varios metodos como ver saldo, ingresar o retirar
  * @author Cristian
  */
 public class CCuenta {
 
     /**
+     * Devuelve el nombre del propietario de la cuenta
      * @return the nombre
      */
     public String getNombre() {
@@ -19,6 +20,7 @@ public class CCuenta {
     }
 
     /**
+     * Sirve para modificar el nombre del propietario de la cuenta
      * @param nombre the nombre to set
      */
     public void setNombre(String nombre) {
@@ -26,6 +28,7 @@ public class CCuenta {
     }
 
     /**
+     * Devuelve el id de la cuenta
      * @return the cuenta
      */
     public String getCuenta() {
@@ -33,6 +36,7 @@ public class CCuenta {
     }
 
     /**
+     * Sirve para modificar el id de la cuenta
      * @param cuenta the cuenta to set
      */
     public void setCuenta(String cuenta) {
@@ -40,6 +44,7 @@ public class CCuenta {
     }
 
     /**
+     * Devuelve el saldo de la cuenta
      * @return the saldo
      */
     public double getSaldo() {
@@ -47,6 +52,7 @@ public class CCuenta {
     }
 
     /**
+     * Sirve para modificar el saldo de la cuenta
      * @param saldo the saldo to set
      */
     public void setSaldo(double saldo) {
@@ -54,6 +60,7 @@ public class CCuenta {
     }
 
     /**
+     * devuelve el tipo de interes de la cuenta
      * @return the tipoInterés
      */
     public double getTipoInterés() {
@@ -61,6 +68,7 @@ public class CCuenta {
     }
 
     /**
+     * Sirve para modificar el tipo de interes de la cuenta
      * @param tipoInterés the tipoInterés to set
      */
     public void setTipoInterés(double tipoInterés) {
@@ -73,10 +81,20 @@ public class CCuenta {
     private double saldo;
     private double tipoInterés;
 
+    /**
+     *Creo un constructor vacio
+     */
     public CCuenta()
     {
     }
 
+    /**
+     *Creo un constructor con los parametros
+     * @param nom El nombre del propietario
+     * @param cue El id de la cuenta
+     * @param sal El saldo de la cuenta
+     * @param tipo El tipo de interes de la cuenta
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
@@ -84,11 +102,21 @@ public class CCuenta {
         saldo=sal;
     }
 
+    /**
+     *Este metodo devuelve el saldo de la cuenta
+     * @return
+     */
     public double estado()
     {
         return getSaldo();
     }
 
+    /**
+     *Este metodo sirve para añadir saldo a la cuenta
+     *Comprueba que no se ingresen cantidades negativas
+     * @param cantidad
+     * @throws Exception
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
@@ -96,6 +124,12 @@ public class CCuenta {
         setSaldo(getSaldo() + cantidad);
     }
 
+    /**
+     *Este metodo sirve para quitar saldo de la cuenta, 
+     *tambien comprueba que el saldo sea positivo al final de la operacion y la entrada de cantidades negativas
+     * @param cantidad
+     * @throws Exception
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
